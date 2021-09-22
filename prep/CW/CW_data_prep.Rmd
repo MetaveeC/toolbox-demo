@@ -85,7 +85,7 @@ Direct measurements of nutrient levels (eg. phosphate, nitrate, etc) were exclud
 
 This section will set up directories, functions, call commonly used libraries, etc, to prepare for the next steps of data prep. 
 
-```{r setup, include=FALSE}
+```{r setup, include=TRUE}
 
 knitr::opts_chunk$set(echo = TRUE)
 
@@ -100,9 +100,9 @@ library(stringr)
 library(tools)
 
 ## Directories
-dir_prep = '~/github/toolbox-demo/prep' 
+dir_prep = 'C:/Sancticon/DMCR/OHI/OHI+2021/CapacityBuild3 OHItoolbox 21-23Sep/toolbox-demo/prep'
 dir_cw   = file.path(dir_prep, 'CW')
-dir_layers = '~/github/toolbox-demo/region2016/layers'
+dir_layers = 'C:/Sancticon/DMCR/OHI/OHI+2021/CapacityBuild3 OHItoolbox 21-23Sep/toolbox-demo/region2016/layers'
 
 ```
 
@@ -114,7 +114,7 @@ Both data sets contains profile data (eg temperature, but secchi is only measure
 
 _Basic functions we will encounter and you will use often: select, mutate, filter, rename_
 
-```{r read in data, echo = FALSE}
+```{r read in data, echo = TRUE}
 
 #### Read in raw data files #####
 
@@ -221,7 +221,7 @@ mean_months_summer = mean_months %>%
 ggplot(mean_months_summer) + 
   geom_point(aes(year,mean_secchi)) +
   geom_line(aes(year,mean_secchi))+
-  facet_wrap(~bhi_id)+
+  facet_wrap(~rgn_id)+
   scale_y_continuous(limits = c(0,10))
 
 ```
